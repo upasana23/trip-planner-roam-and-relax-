@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card } from "@/components/ui/card";
 import { Eye, EyeOff, User, Mail, Lock, ArrowLeft } from "lucide-react";
-import { auth, storage } from "@/lib/auth";
+import { signIn } from "next-auth/react";
 
 export default function SignupPage() {
   const router = useRouter();
@@ -88,24 +88,23 @@ export default function SignupPage() {
     setMessage("");
 
     try {
-      console.log("Attempting to create user:", formData.email);
-      const result = auth.createUser({
-        fullName: formData.fullName.trim(),
-        email: formData.email.trim(),
-        password: formData.password
+      const res = await fetch('/api/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.fullName.trim(),
+          email: formData.email.trim(),
+          password: formData.password,
+        }),
       });
-
-      if (result.success) {
-        console.log("User created successfully:", result.user);
-        storage.setUser(result.user);
-        setMessage("Account created successfully! Redirecting to dashboard...");
-        setTimeout(() => {
-          router.push('/dashboard');
-        }, 1500);
-      } else {
-        console.log("User creation failed:", result.error);
-        setMessage(result.error);
+      const data = await res.json();
+      if (!res.ok) {
+        setMessage(data.error || 'Signup failed');
+        return;
       }
+
+      setMessage("Account created successfully! Redirecting to dashboard...");
+      await signIn('credentials', { email: formData.email.trim(), password: formData.password, redirect: true, callbackUrl: '/dashboard' });
     } catch (error) {
       console.error("Error during signup:", error);
       setMessage("An error occurred during signup. Please try again.");

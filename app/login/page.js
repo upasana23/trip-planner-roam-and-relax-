@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card } from "@/components/ui/card";
 import { Eye, EyeOff, User, Mail, Lock, ArrowLeft } from "lucide-react";
-import { auth, storage } from "@/lib/auth";
+import { signIn } from "next-auth/react";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -70,18 +70,16 @@ export default function LoginPage() {
     setMessage("");
 
     try {
-      console.log("Attempting to login:", formData.email);
-      const user = auth.checkUser(formData.email, formData.password);
+      const res = await signIn("credentials", {
+        email: formData.email,
+        password: formData.password,
+        redirect: false,
+      });
 
-      if (user) {
-        console.log("Login successful:", user);
-        storage.setUser(user);
+      if (res?.ok) {
         setMessage("Login successful! Redirecting to dashboard...");
-        setTimeout(() => {
-          router.push('/dashboard');
-        }, 1500);
+        setTimeout(() => router.push('/dashboard'), 1000);
       } else {
-        console.log("Login failed: invalid credentials");
         setMessage("Invalid email or password. Please try again.");
       }
     } catch (error) {
@@ -102,15 +100,8 @@ export default function LoginPage() {
 
   const handleDemoLogin = async () => {
     setFormData({ email: "demo@example.com", password: "demo123" });
-    // Short delay to ensure state set
-    setTimeout(() => {
-      const user = auth.checkUser("demo@example.com", "demo123");
-      if (user) {
-        storage.setUser(user);
-        router.push('/dashboard');
-      } else {
-        setMessage("Demo user unavailable.");
-      }
+    setTimeout(async () => {
+      await signIn("credentials", { email: "demo@example.com", password: "demo123", redirect: true, callbackUrl: "/dashboard" });
     }, 100);
   };
 
