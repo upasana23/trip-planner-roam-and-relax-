@@ -101,6 +101,7 @@ export default function HomePage() {
               </div>
               <div>
                 <label className="text-sm flex items-center gap-2"><DollarSign className="w-4 h-4" /> Budget</label>
+<<<<<<< HEAD
                 <Input
                   value={budget}
                   onChange={(e) => setBudget(e.target.value)}
@@ -108,12 +109,23 @@ export default function HomePage() {
                   type="number"
                   min="0"
                 />
+=======
+                <Select onValueChange={setBudget}>
+                  <SelectTrigger><SelectValue placeholder="Select budget" /></SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="budget">Budget</SelectItem>
+                    <SelectItem value="mid">Mid-range</SelectItem>
+                    <SelectItem value="luxury">Luxury</SelectItem>
+                  </SelectContent>
+                </Select>
+>>>>>>> 38cd313caeb7d897cf8c36e8044ac6411404b315
               </div>
               <div>
                 <label className="text-sm flex items-center gap-2"><Map className="w-4 h-4" /> Tour Type</label>
                 <Select onValueChange={setTourType}>
                   <SelectTrigger><SelectValue placeholder="Select tour type" /></SelectTrigger>
                   <SelectContent>
+<<<<<<< HEAD
                     <SelectItem value="adventure tour">Adventure Tour</SelectItem>
                     <SelectItem value="cultural & heritage tour">Cultural & Heritage Tour</SelectItem>
                     <SelectItem value="wildlife/nature tour">Wildlife/Nature Tour</SelectItem>
@@ -122,6 +134,11 @@ export default function HomePage() {
                     <SelectItem value="professional/business tour">Professional/Business Tour</SelectItem>
                     <SelectItem value="religious/pilgrimage tour">Religious/Pilgrimage Tour</SelectItem>
                     <SelectItem value="wellness & retreat tour">Wellness & Retreat Tour</SelectItem>
+=======
+                    <SelectItem value="adventure">Adventure</SelectItem>
+                    <SelectItem value="cultural">Cultural</SelectItem>
+                    <SelectItem value="relaxation">Relaxation</SelectItem>
+>>>>>>> 38cd313caeb7d897cf8c36e8044ac6411404b315
                   </SelectContent>
                 </Select>
               </div>
@@ -153,8 +170,14 @@ export default function HomePage() {
               <Search className="w-5 h-5 mr-2" /> Start Your Journey
             </Button>
             <Button 
+<<<<<<< HEAD
               size="lg"
               className="bg-black text-white hover:bg-black/90"
+=======
+              variant="outline" 
+              size="lg"
+              className="bg-white/10 border-white/30 text-white hover:bg-white/20 hover:border-white/50"
+>>>>>>> 38cd313caeb7d897cf8c36e8044ac6411404b315
               onClick={() => router.push('/dashboard')}
               style={{ fontFamily: 'Quicksand, sans-serif' }}
             >
@@ -227,7 +250,11 @@ export default function HomePage() {
             </div>
           </div>
           <div className="border-t border-gray-700 pt-8 text-center text-gray-400">
+<<<<<<< HEAD
             <p>&copy; 2025 Roam & Relax. All rights reserved. | Privacy Policy | Terms of Service</p>
+=======
+            <p>&copy; 2024 Roam & Relax. All rights reserved. | Privacy Policy | Terms of Service</p>
+>>>>>>> 38cd313caeb7d897cf8c36e8044ac6411404b315
           </div>
         </div>
       </footer>

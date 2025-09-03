@@ -20,6 +20,7 @@ const preferredAreas = [
   "Religious / Pilgrimage ⛪🕌🛕",
 ]
 
+<<<<<<< HEAD
 const tourTypes = [
   "Adventure Tour",
   "Cultural & Heritage Tour",
@@ -30,6 +31,9 @@ const tourTypes = [
   "Religious/Pilgrimage Tour",
   "Wellness & Retreat Tour",
 ]
+=======
+const tourTypes = ["Family", "Honeymoon", "Solo Travel", "Adventure", "Business", "Group Tour", "Luxury", "Budget"]
+>>>>>>> 38cd313caeb7d897cf8c36e8044ac6411404b315
 
 export default function OnboardingPage() {
   const [currentStep, setCurrentStep] = useState(1)

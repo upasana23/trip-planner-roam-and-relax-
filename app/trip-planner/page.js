@@ -20,7 +20,11 @@ export default function TripPlannerPage() {
     destination: "",
     duration: "",
     interests: "",
+<<<<<<< HEAD
     budget: "",
+=======
+    budget: "medium",
+>>>>>>> 38cd313caeb7d897cf8c36e8044ac6411404b315
     cuisine_preferences: "",
     season: "summer",
   });
@@ -144,6 +148,7 @@ export default function TripPlannerPage() {
 
             <div className="space-y-2">
               <Label htmlFor="budget">Budget</Label>
+<<<<<<< HEAD
               <Input
                 id="budget"
                 name="budget"
@@ -154,6 +159,20 @@ export default function TripPlannerPage() {
                 required
                 min="0"
               />
+=======
+              <select
+                id="budget"
+                name="budget"
+                value={formData.budget}
+                onChange={handleInputChange}
+                className="w-full p-2 border rounded-md"
+                required
+              >
+                <option value="budget">Budget</option>
+                <option value="medium">Medium</option>
+                <option value="luxury">Luxury</option>
+              </select>
+>>>>>>> 38cd313caeb7d897cf8c36e8044ac6411404b315
             </div>
 
             <div className="space-y-2">
