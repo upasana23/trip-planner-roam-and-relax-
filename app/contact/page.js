@@ -103,12 +103,26 @@ export default function ContactPage() {
               <p className="text-gray-600 mb-4">
                 Prefer to talk? Our travel experts are here to help.
               </p>
-              <a 
-                href="tel:+1-555-123-4567" 
-                className="text-secondary hover:text-secondary/80 font-medium"
-              >
-                +1 (555) 123-4567
-              </a>
+              <div className="space-y-2">
+                <a 
+                  href="tel:+919432370950" 
+                  className="text-black hover:text-black font-medium block"
+                >
+                  +91 9432370950
+                </a>
+                <a 
+                  href="tel:+918274052647" 
+                  className="text-black hover:text-black font-medium block"
+                >
+                  +91 8274052647
+                </a>
+                <a 
+                  href="tel:+918084161425" 
+                  className="text-black hover:text-black font-medium block"
+                >
+                  +91 8084161425
+                </a>
+              </div>
             </Card>
 
             <Card className="p-8 text-center hover:shadow-lg transition-shadow">
@@ -214,37 +228,7 @@ export default function ContactPage() {
                 Our Office
               </h3>
               
-              <Card className="p-6 mb-8">
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-semibold text-gray-800 mb-2">Headquarters</h4>
-                    <p className="text-gray-600">
-                      123 Travel Street<br />
-                      <br />
-                      
-                    </p>
-                  </div>
-                </div>
-              </Card>
-
-              <Card className="p-6 mb-8">
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-secondary rounded-full flex items-center justify-center flex-shrink-0">
-                    <Globe className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-semibold text-gray-800 mb-2">International Office</h4>
-                    <p className="text-gray-600">
-                      456 Explorer Avenue<br />
-                      Wanderlust District<br />
-                      London, UK
-                    </p>
-                  </div>
-                </div>
-              </Card>
+              
 
               <Card className="p-6">
                 <div className="flex items-start space-x-4">

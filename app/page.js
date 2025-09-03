@@ -101,23 +101,27 @@ export default function HomePage() {
               </div>
               <div>
                 <label className="text-sm flex items-center gap-2"><DollarSign className="w-4 h-4" /> Budget</label>
-                <Select onValueChange={setBudget}>
-                  <SelectTrigger><SelectValue placeholder="Select budget" /></SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="budget">Budget</SelectItem>
-                    <SelectItem value="mid">Mid-range</SelectItem>
-                    <SelectItem value="luxury">Luxury</SelectItem>
-                  </SelectContent>
-                </Select>
+                <Input
+                  value={budget}
+                  onChange={(e) => setBudget(e.target.value)}
+                  placeholder="Enter budget amount"
+                  type="number"
+                  min="0"
+                />
               </div>
               <div>
                 <label className="text-sm flex items-center gap-2"><Map className="w-4 h-4" /> Tour Type</label>
                 <Select onValueChange={setTourType}>
                   <SelectTrigger><SelectValue placeholder="Select tour type" /></SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="adventure">Adventure</SelectItem>
-                    <SelectItem value="cultural">Cultural</SelectItem>
-                    <SelectItem value="relaxation">Relaxation</SelectItem>
+                    <SelectItem value="adventure tour">Adventure Tour</SelectItem>
+                    <SelectItem value="cultural & heritage tour">Cultural & Heritage Tour</SelectItem>
+                    <SelectItem value="wildlife/nature tour">Wildlife/Nature Tour</SelectItem>
+                    <SelectItem value="city sightseeing tour">City Sightseeing Tour</SelectItem>
+                    <SelectItem value="educational tour">Educational Tour</SelectItem>
+                    <SelectItem value="professional/business tour">Professional/Business Tour</SelectItem>
+                    <SelectItem value="religious/pilgrimage tour">Religious/Pilgrimage Tour</SelectItem>
+                    <SelectItem value="wellness & retreat tour">Wellness & Retreat Tour</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -149,9 +153,8 @@ export default function HomePage() {
               <Search className="w-5 h-5 mr-2" /> Start Your Journey
             </Button>
             <Button 
-              variant="outline" 
               size="lg"
-              className="bg-white/10 border-white/30 text-white hover:bg-white/20 hover:border-white/50"
+              className="bg-black text-white hover:bg-black/90"
               onClick={() => router.push('/dashboard')}
               style={{ fontFamily: 'Quicksand, sans-serif' }}
             >
@@ -224,7 +227,7 @@ export default function HomePage() {
             </div>
           </div>
           <div className="border-t border-gray-700 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 Roam & Relax. All rights reserved. | Privacy Policy | Terms of Service</p>
+            <p>&copy; 2025 Roam & Relax. All rights reserved. | Privacy Policy | Terms of Service</p>
           </div>
         </div>
       </footer>
